@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Handle, Position } from 'reactflow';
 import type { NodeProps } from 'reactflow';
 import { Settings } from 'lucide-react';
-import NodeConfigPanel from '../nodes/NodeConfigPanel';
+import NodeConfigPanel from './NodeConfigPanel';
 
 interface CustomNodeData {
   label: string;

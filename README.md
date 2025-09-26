@@ -1,15 +1,17 @@
-# LangFlow Clone
+# 🚀 AI Agent Builder
 
-A visual AI workflow builder application that replicates Langflow's core functionality. Build, test, and deploy AI workflows through a drag-and-drop interface with comprehensive LLM integrations.
+A powerful visual AI workflow builder for creating multi-agent systems. Build, test, and deploy AI workflows through an intuitive drag-and-drop interface with dynamic agent orchestration capabilities.
 
-## Features
+## ✨ Features
 
 - 🎨 **Visual Flow Builder**: Drag-and-drop interface for building AI workflows
-- 🤖 **LLM Integrations**: Support for OpenAI, Anthropic, Google, and more
+- 🤖 **Multi-Model Support**: Llama, Anthropic, Cohere, HuggingFace, and more
+- 🔌 **Dynamic Connections**: Add up to 10 inputs and agent outputs per node
+- 🤝 **Multi-Agent Orchestration**: Connect multiple specialized agents to language models
 - 🔄 **Real-time Execution**: Stream results as workflows execute
 - 💾 **Persistence**: Save and load workflows with version control
-- 🔐 **Authentication**: Secure user authentication and API key management
-- 🚀 **Deployment Ready**: Export and deploy workflows as APIs
+- 🎯 **Smart Components**: 9 categories with 30+ pre-built components
+- 🚀 **One-Command Setup**: Get started in seconds with automated setup
 
 ## Tech Stack
 
@@ -26,65 +28,101 @@ A visual AI workflow builder application that replicates Langflow's core functio
 - Zustand for state management
 - React Query for data fetching
 
-## Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
+- Python 3.8+
+- Node.js 16+
+- npm
 
-- Python 3.10+
-- Node.js 18+
-- PostgreSQL (optional, SQLite by default)
-- Redis (for Celery, optional)
+### Simple Setup & Run
 
-### Backend Setup
-
-1. Navigate to the backend directory:
 ```bash
-cd backend
-```
+# Clone the repository
+git clone <your-repo-url>
+cd AIAgentBuilder
 
-2. Install dependencies using uv:
-```bash
-pip install uv
-uv pip install -e .
-```
-
-3. Copy the environment file:
-```bash
-cp .env.example .env
-```
-
-4. Update the `.env` file with your API keys and configuration
-
-5. Run the backend server:
-```bash
-uvicorn app.main:app --reload
-```
-
-The backend will be available at http://localhost:8000
-
-### Frontend Setup
-
-1. Navigate to the frontend directory:
-```bash
+# Frontend Setup
 cd frontend
-```
-
-2. Install dependencies:
-```bash
 npm install
-```
+echo "VITE_API_URL=http://localhost:8003" > .env
+echo "VITE_WS_URL=ws://localhost:8003" >> .env
 
-3. Start the development server:
-```bash
+# Start Frontend (in one terminal)
 npm run dev
+# Frontend will be available at http://localhost:3000
+
+# Backend Setup (in another terminal)
+cd ../backend
+pip3 install fastapi uvicorn python-multipart
+
+# Start Backend
+python3 simple_server.py
+# Backend will be available at http://localhost:8003
 ```
 
-The frontend will be available at http://localhost:3000
+### One-Command Start (if already set up)
+```bash
+# Use the simple start script
+./start_simple.sh
+```
+
+## 🛠️ Alternative Setup Methods
+
+### Using Make
+```bash
+# See all available commands
+make help
+
+# Run both services
+make dev
+```
+
+### Using Poetry (Advanced)
+```bash
+# If you have Poetry installed
+cd backend
+poetry install
+poetry run uvicorn app.main:app --reload
+```
+
+## 🔧 Troubleshooting
+
+### Port Conflicts
+If ports 3000 or 8003 are in use:
+- Frontend: Will automatically use port 3001
+- Backend: Edit `simple_server.py` and change the port number
+
+### Python Issues
+If you get module errors:
+- Use the `simple_server.py` instead of the full backend
+- Only requires: `pip3 install fastapi uvicorn python-multipart`
+
+### Node.js Version
+- Requires Node.js 16+ (works with warnings on Node.js 22)
+- The warnings about Node.js version can be safely ignored
+
+## 🎯 What's Working
+
+### Current Features
+- ✅ Visual flow builder with drag-and-drop
+- ✅ Dark theme professional UI
+- ✅ Llama model node with dynamic I/O
+- ✅ Add up to 10 inputs and 10 agent outputs per node
+- ✅ Component sidebar with 9 categories
+- ✅ Basic API endpoints
+- ✅ CORS configured for local development
+
+### Quick Test
+1. Open http://localhost:3000 in your browser
+2. Drag the "Llama" component from the Models section
+3. Click the "+" button to add more inputs or agent outputs
+4. Connect nodes by dragging between connection points
 
 ## Project Structure
 
 ```
-langflow-clone/
+AIAgentBuilder/
 ├── backend/
 │   ├── app/
 │   │   ├── api/          # API endpoints
@@ -127,37 +165,65 @@ langflow-clone/
    - Export flows as JSON
    - Deploy flows as APIs (coming soon)
 
-## Component Types
+## 🧩 Component Library
 
-### Inputs/Outputs
-- Text Input/Output
+### Input / Output
 - Chat Input/Output
-- File Upload
-- API Response
+- Text Input/Output
+- Prompt Templates
+- File Loaders
 
-### Language Models
-- OpenAI (GPT-4, GPT-3.5)
-- Anthropic (Claude)
-- Google Vertex AI
-- Azure OpenAI
-- Local Models (Ollama)
+### Models
+- 🦙 **Llama** (with dynamic I/O)
+- Anthropic Claude
+- Cohere
+- HuggingFace
+
+### Agents
+- LangChain Agents
+- CSV Agent
+- SQL Agent
+
+### Data
+- API Request
+- CSV/JSON Loaders
+- Web Scraper
+
+### Vector Stores
+- Chroma
+- Pinecone
+- Weaviate
 
 ### Processing
 - Text Splitter
-- Data Parser
-- Type Converter
+- Embeddings
+- Summarizer
+
+### Logic
 - Conditional Router
+- Loop Iterator
 
-### Tools
-- Web Search
+### Helpers
 - Calculator
-- Python Code
-- SQL Query
+- Search Tools
 
-### Memory/Storage
-- Chat Memory
-- Vector Store
-- Cache
+### Bundles
+- RAG Bundle
+- Q&A Bundle
+
+## 🎯 Key Features
+
+### Dynamic Node Connections
+The Llama model node supports:
+- **Dynamic Inputs**: Add up to 10 input connections
+- **Agent Outputs**: Add up to 10 agent connections for multi-agent workflows
+- **Visual Management**: Add/remove connections with intuitive + and × buttons
+
+### Professional UI
+- Modern slate blue and teal color scheme
+- Smooth animations and transitions
+- Double-click editing for templates
+- Real-time visual feedback
 
 ## API Documentation
 
