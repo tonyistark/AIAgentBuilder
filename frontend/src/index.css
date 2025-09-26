@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional dark theme styles for React Flow */
+.react-flow {
+  background-color: #0a0e1a;
+  background-image: 
+    radial-gradient(circle at 1px 1px, #1e293b 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+.react-flow__node {
+  border: none;
+  box-shadow: none;
+}
+
+.react-flow__handle {
+  background: #6366f1;
+  border: 2px solid #1f2937;
+  width: 16px;
+  height: 16px;
+}
+
+.react-flow__handle-connecting {
+  background: #10b981;
+}
+
+.react-flow__edge-path {
+  stroke: #6366f1;
+  stroke-width: 2;
+}
+
+.react-flow__edge.animated path {
+  stroke-dasharray: 5;
+  animation: dashdraw 0.5s linear infinite;
+}
+
+@keyframes dashdraw {
+  0% {
+    stroke-dashoffset: 10;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a5568;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
